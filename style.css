@@ -1,171 +1,103 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
-body,
-html {
-  margin: 0;
-  padding: 0;
+/* Style Settings 
+@import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+*/
+@font-face {
+    font-family: 'open_sansregular';
+    src: url('opensans-regular-webfont.woff2') format('woff2'),
+         url('opensans-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+:root {
+    --bgColor:#1C1C1C;
+    --accentColor: #E6E6E6;
+    --font: 'open_sansregular', sans-serif;
 }
 
 body {
- width: 100vw;
- height: 100vh;
-  /*background: -webkit-gradient(linear, left top, right bottom, from(rgba(0, 0, 255, 0.5)), to(rgba(0, 128, 0, 0.5))), url(http://i.imgur.com/woUbg3p.jpg);
-  background: linear-gradient(to right bottom, rgba(0, 0, 255, 0.5), rgba(0, 128, 0, 0.5)), url(http://i.imgur.com/woUbg3p.jpg);
+
+  /* Location of the image */
+  background-image: url(bg.png);
+  
+  /* Background image is centered vertically and horizontally at all times */
+  background-position: center center;
+  
+  /* Background image doesn't tile */
+  background-repeat: no-repeat;
+  
+  /* Background image is fixed in the viewport so that it doesn't move when 
+     the content's height is greater than the image's height */
+  background-attachment: fixed;
+  
+  /* This is what makes the background image rescale based
+     on the container's size */
   background-size: cover;
-  background-position: center center;
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-          align-items: center;
-*/
+  
+  /* Set a background color that will be displayed
+     while the background image is loading */
+  background-color: var(--accentColor);
+
+  animation: zoomEffect 15s infinite alternate;
 }
 
-#header {
-  width: 100vw;
-  height: 99.9vh;
-
-  /*padding-left: 5vw; */
-  background: url(bg.png);
-  /* */background-size: cover;
-  background-position: center center;
-
-/*zoom animation*/
-  -webkit-animation: zoomEffect 30s infinite;
-  -webkit-animation-timing-function: normal;
-  -webkit-animation-direction: alternate;
-  -webkit-backface-visibility: hidden;
-}
-
-@-webkit-keyframes zoomEffect {
-  0% {
-    -webkit-transform: scale(1) translateX(0) translateY(0);
+@keyframes zoomEffect {
+	0% {
+    background-size: 50% 50%;
+  }
+  10% {
+    background-size: 100% 100%;
   }
   100% {
-    -webkit-transform: scale(1.5) translateX(0) translateY(0);
+    background-size: 115% 115%;
   }
 }
 
-#profile {
-  width: 100vw;
-  height: 0.1vh;
-  
-  background: black;
-  position: relative;
-}
-#profile .image {
-  width: 280px;
-  height: 280px;
-  border: 20px solid rgba(0, 0, 0, 0.35);
+
+#userPhoto{
+    width: 120px;
+    height: 120px;
+    display: block;
+    margin: 35px auto 20px;
+
+	border: 10px solid rgba(0, 0, 0, 0.25);
   border-radius: 50%;
-  
-  /*Fungsi untuk center object*/
-  position: absolute;
-  top: -50%;
-  margin-bottom: -150%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-  
-  top: -60vh;
-}
-/*
-#fontwithborder {
-  width: 100vw;
-  height: 10vh;
-  
-  background: white;
-  position: relative;
-}
-#fontwithborder .yes {
-  color: #ffffff;
-  font-size: 4rem;
-  padding-bottom: 7px;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 100px;
-
-  font-family: 'Open Sans', sans-serif;
-  padding: 15px 20vw;
-
-  position: absolute;
-  top: 0%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-}*/
-
-/*
-#profile .name {
-	
-  font-size: 4rem;
-  font-weight: 500;
-  color: #444;
-  
-  position: absolute;
-  top: 10vh;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-}
-*/
-
-/*
-#profile .location {
-  color: #555;
-  font-size:  3rem;
-  
-  position: absolute;
-  padding-left: 3vw;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-}
-*/
-
-#profile .nick {
-  color: #ffffff;
-  font-size: 4rem;
-  padding-bottom: 7px;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 100px;
-
-  font-family: 'Open Sans', sans-serif;
-  padding: 15px 10vw;
-
-  position: absolute;
-  top: 50%;
-  margin-bottom: -50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-  
-  top: -20vh;
-}
-#profile .desc {
-  font-family: 'Open Sans', sans-serif;
-  color: #555;
-  font-size: 3rem;
-  
-  position: absolute;
-  /*padding-left: 3vw;*/
-  top: 70%;
-  margin-bottom: -30%;
-  /*bottom: 10%;*/
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
 }
 
-#footer {
-  width: 100vw;
-  height: 5vh;
-  
-  background: url(http://i.imgur.com/woUbg3p.jpg);
-  /* */background-size: cover;
-  background-position: bottom;
+#userName{
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 2;
+    display: block;
+    font-family: var(--font);
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
 }
-.overflow {
-  overflow: hidden;
+
+#links{
+    max-width: 675px;
+    width: auto;
+    display: block;
+    margin: 25px auto;
+}
+.link{
+    display: block;
+    background-color: var(--accentColor);
+    color: var(--bgColor);
+    font-family: var(--font);
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 16px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all .25s cubic-bezier(.08,.59,.29,.99);
+    border: solid var(--accentColor) 3px;
+}
+
+.link:hover{
+    background-color: var(--bgColor);
+    color: var(--accentColor);
 }
