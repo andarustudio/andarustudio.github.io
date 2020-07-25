@@ -7,7 +7,6 @@
          url('opensans-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 
 :root {
@@ -39,21 +38,37 @@ body {
      while the background image is loading */
   background-color: var(--accentColor);
 
+  /*
   animation: zoomEffect 20s infinite alternate;
+  */
+  
+  /*Double animation settings*/
+  animation-name: bgenter, zoomEffect;
+  animation-duration: 1s, 15s;
+  animation-timing-function: linear, linear;
+  animation-delay: 0s, 1s;
+  animation-iteration-count: 1, infinite;
+  animation-direction: alternate, alternate;
+
 }
 
-@keyframes zoomEffect {
+@keyframes bgenter {
 0% {
     background-size: 50% 50%;
   }
-  5% {
+  100% {
+    background-size: 100% 100%;
+  }
+}
+
+@keyframes zoomEffect {
+  0% {
     background-size: 100% 100%;
   }
   100% {
     background-size: 115% 115%;
   }
 }
-
 
 #userPhoto{
     width: 120px;
@@ -62,14 +77,14 @@ body {
     margin: 35px auto 20px;
 
 	border: 10px solid rgba(0, 0, 0, 0.25);
-  border-radius: 50%;
+	border-radius: 50%;
 }
 
 #userName{
     color: white;
     font-size: 1.25rem;
-    font-weight: 600;
-    line-height: 2;
+    font-weight: 700;
+    /*line-height: 2;	*/
     display: block;
     font-family: var(--font);
     width: 100%;
@@ -90,11 +105,12 @@ body {
     font-family: var(--font);
     text-align: center;
     margin-bottom: 20px;
-    padding: 16px;
+    padding: 16.5px;
     text-decoration: none;
     font-size: 1rem;
     transition: all .25s cubic-bezier(.08,.59,.29,.99);
-    border: solid var(--accentColor) 3px;
+    border: solid var(--accentColor) 2.5px;
+	font-weight: bold;
 }
 
 .link:hover{
